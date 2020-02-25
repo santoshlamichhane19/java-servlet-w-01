@@ -21,7 +21,6 @@ public class UserLogin extends HttpServlet {
 			throws ServletException, IOException {
 
 		String username = request.getParameter("username");
-		System.out.println(username);
 
 	}
 
