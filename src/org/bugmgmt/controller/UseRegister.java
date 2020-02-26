@@ -10,14 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.bugmgmt.model.UserInfo;
 
-@WebServlet(name = "login", urlPatterns = { "/login" })
-public class UserLogin extends HttpServlet {
+@WebServlet(name = "register", urlPatterns = { "/register" })
+public class UseRegister extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -26,7 +21,9 @@ public class UserLogin extends HttpServlet {
 
 		userInfo.setUsername(request.getParameter("username"));
 		userInfo.setPassword(request.getParameter("password"));
+		userInfo.setUser_type(request.getParameter("user_type"));
 
+		System.out.println(userInfo.getUsername());
 	}
 
 }

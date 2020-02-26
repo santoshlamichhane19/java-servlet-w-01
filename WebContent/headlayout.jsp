@@ -11,51 +11,100 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<title>Insert title here</title>
+<style>
+    .wrapper {
+        margin-top: 56px;
+    }
+</style>
+<title>Bug Management</title>
 </head>
-<body>
+<body class="text-monospace">
 
 	
 <!-- Navigation Start  -->
 
 <nav>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-sm-12">
-				<h1>Hello</h1>
-			</div>
-		
+	
+	<div class="navbar navbar-expand-sm bg-dark navbar-dark">
+		<div class="container-fluid">
+			<a href="#" class="navbar-brand">Bug Management</a>
+			
 		</div>
+		
 	</div>
-
 </nav>
-
 
 <!-- Navigation End  -->
 
-<!-- Sidebar Start -->
 
+<div class="wrapper d-flex">
+
+	<div class="bg-dark w-25 text-light">
+		<div>
+			Sidebar
+		</div>
 
 
 <!-- Sidebar End -->
 
+		</div>
 
+
+<div class="w-75 bg-light shadow border border-dark">
+
+	<div class="container">
+		<div class="row justify-content-around">
+		<div class="col-sm-4 card m-3 shadow rounded align-items-center">
+			
+			<form class="form-group m-2" method="post" action="login">
+				<input class="form-control m-2 p-2 shadow rounded" type="text" name="username" placeholder="Enter Username">
+				<input class="form-control m-2 p-2 shadow rounded" type="password" name="password" placeholder="Enter Password">
+				
+				<input class="btn btn-dark shadow border rounded m-2"type="submit" value="Login"> 
+			</form>
+		</div>
+		
+			<div class="col-sm-4 card m-4 shadow rounded">
+			<form class="form-group m-2" method="post" action="register">
+				<input class="form-control m-2 p-2 shadow rounded" type="text" name="username" placeholder="Enter Username">
+				<input class="form-control m-2 p-2 shadow rounded" type="password" name="password" placeholder="Enter Password">
+				<select class="form-control m-2 p-2 shadow rounded"  name="userType">
+					<option value="Admin">Admin</option>
+					<option value="User">User</option>
+				</select>
+			
+				<button class="btn btn-dark btn-block shadow border rounded mt-2">Register</button>
+			</form>
+		</div>
+		
+		
+		</div>
+	
+	</div>
+
+	
 
 <!-- Main Body Start -->
 
 
 
+
+
+
+
+
 <!-- Main Body  End -->
-
-
-<form class="container-fluid" action="login" method="post">
-		<input type="text" name="username" placeholder="Enter Username">
-		<input type="submit" value="Login"> 
-	</form>
+</div>
 
 
 
 
+
+
+
+
+
+</div>
 
 
 <!-- Head - Layout Document End  -->

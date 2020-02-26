@@ -3,7 +3,7 @@
   <display-name>BMS</display-name>
   <welcome-file-list>
     <welcome-file>headlayout.jsp</welcome-file>
-    <welcome-file>index.htm</welcome-file>
+    
     
   </welcome-file-list>
 </web-app>
