@@ -33,7 +33,7 @@ public class UserLogin extends HttpServlet {
 		userInfo.setPassword(request.getParameter("password"));
 
 		if (userService.isValidLogin(userInfo.getUsername(), userInfo.getPassword())) {
-			response.sendRedirect("body.jsp");
+			response.sendRedirect("dashboard.jsp");
 		} else {
 
 			RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
