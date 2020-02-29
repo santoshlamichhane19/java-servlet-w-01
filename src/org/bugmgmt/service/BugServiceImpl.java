@@ -8,22 +8,40 @@ import org.bugmgmt.model.BugModel;
 
 public class BugServiceImpl implements BugService {
 
-	BugDao budDao = new BugDaoImpl();
+	BugDao bugDao = new BugDaoImpl();
 
 	@Override
 	public void saveRequestDataForBugs(BugModel bugData) {
-		budDao.saveBugData(bugData);
+		bugDao.saveBugData(bugData);
 
 	}
 
 	@Override
 	public int getTotalCount() {
-		return budDao.getListOfBugs();
+		return bugDao.getListOfBugs();
 	}
 
 	@Override
 	public List<BugModel> getAllBugData() {
-		return budDao.getAllBugData();
+		return bugDao.getAllBugData();
+	}
+
+	@Override
+	public BugModel getDetailsUsingId(int bug_id) {
+		return bugDao.getDetailsUsingId(bug_id);
+
+	}
+
+	@Override
+	public void deleteBugUsingId(int bug_id) {
+		bugDao.deleteBugUsingId(bug_id);
+
+	}
+
+	@Override
+	public void updateBugData(BugModel bug) {
+		bugDao.updateBugData(bug);
+
 	}
 
 }

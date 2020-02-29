@@ -14,8 +14,8 @@
                     <div class="col card m-4 p-2 shadow text-dark ">
                         <form method="post" action="create">
                             <div class="form-group m-3" >
-                                <label class="font-weight-bold">ID</label>
-                                <input type="text" class="col-md-4 form-control" name="bugID" placeholder="Enter ID" disabled>
+                                <label class="font-weight-bold">Id</label>
+                                <input type="text" class="col-md-4 form-control" name="bugID" placeholder="We will set ID for you" disabled>
                             </div>
 
                             <div class="form-group m-3 ">
@@ -27,18 +27,18 @@
                                 <div class="col-md-4 form-group">
                                     <label class="font-weight-bold text-danger">Priority</label>
                                     <select class="form-control" name="bugPriority">
-                                        <option value="high">High</option>
-                                        <option value="medium">Medium</option>
-                                        <option value="low">Low</option>
+                                        <option value="High">High</option>
+                                        <option value="Medium">Medium</option>
+                                        <option value="Low">Low</option>
                                     </select>
                                 </div>
 
                                 <div class="col-md-4 form-group">
                                     <label class="font-weight-bold text-danger">Severity</label>
                                     <select class="form-control" name="bugSeverity">
-                                        <option value="high">High</option>
-                                        <option value="medium">Medium</option>
-                                        <option value="low">Low</option>
+                                        <option value="High">High</option>
+                                        <option value="Medium">Medium</option>
+                                        <option value="Low">Low</option>
                                     </select>
                                 </div>
 
@@ -58,9 +58,9 @@
                                 <div class="col-md-4 form-group">
                                     <label class="font-weight-bold">Status</label>
                                     <select class="form-control" name="bugStatus">
-                                        <option value="high">New</option>
-                                        <option value="medium" disabled>In Process</option>
-                                        <option value="low" disabled>Completed</option>
+                                        <option value="New">New</option>
+                                        <option value="InProcess" disabled>InProcess</option>
+                                        <option value="Completed" disabled>Completed</option>
                                     </select>
                                 </div>
 

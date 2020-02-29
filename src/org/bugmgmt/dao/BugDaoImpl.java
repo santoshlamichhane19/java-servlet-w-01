@@ -13,8 +13,11 @@ import org.bugmgmt.util.DBConnection;
 public class BugDaoImpl implements BugDao {
 
 	private static final String GET_ID = "SELECT count(bug_id) from list_bug_table";
-	private static final String INSERT_BUG_D = "INSERT into list_bug_table (bug_id, severity, status, description, summary, created_by) values (?,?,?,?,?,?);";
+	private static final String INSERT_BUG_D = "INSERT into list_bug_table (bug_id, severity, status, description, summary, created_by, priority) values (?,?,?,?,?,?,?);";
 	private static final String SELECT_ALL_BUG_DATA = "SELECT * from list_bug_table";
+	private static final String SELECT_BUG_USING_ID = "SELECT * from list_bug_table where bug_id=?";
+	private static final String EDIT_BUG_USING_ID = "UPDATE list_bug_table SET severity=?, status=?, description=?, summary=?, created_by=?, priority=? where bug_id=?";
+	private static final String DELETE_BUG_BY_ID = "DELETE from list_bug_table where bug_id=?";
 
 	@Override
 	public void saveBugData(BugModel bugData) {
@@ -27,6 +30,7 @@ public class BugDaoImpl implements BugDao {
 			pst.setString(4, bugData.getDescription());
 			pst.setString(5, bugData.getSummary());
 			pst.setString(6, bugData.getCreateBy());
+			pst.setString(7, bugData.getPriority());
 			pst.execute();
 
 		} catch (SQLException | ClassNotFoundException e) {
@@ -71,6 +75,7 @@ public class BugDaoImpl implements BugDao {
 				allBugD.setDescription(rs.getString("description"));
 				allBugD.setSummary(rs.getString("summary"));
 				allBugD.setCreateBy(rs.getString("created_by"));
+				allBugD.setPriority(rs.getString("priority"));
 				// add bug data to the list
 				allBugData.add(allBugD);
 			}
@@ -81,6 +86,70 @@ public class BugDaoImpl implements BugDao {
 		}
 
 		return allBugData;
+	}
+
+	@Override
+	public void deleteBugUsingId(int bug_id) {
+		try (Connection connect = DBConnection.getConnection();
+				PreparedStatement pst = connect.prepareStatement(DELETE_BUG_BY_ID);) {
+
+			pst.setInt(1, bug_id);
+			pst.executeUpdate();
+
+		} catch (SQLException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	@Override
+	public BugModel getDetailsUsingId(int bug_id) {
+
+		BugModel bugUpdate = new BugModel();
+
+		try (Connection connect = DBConnection.getConnection();
+				PreparedStatement pst = connect.prepareStatement(SELECT_BUG_USING_ID);) {
+
+			pst.setInt(1, bug_id);
+			ResultSet rs = pst.executeQuery();
+			if (rs.next()) {
+				bugUpdate.setBugID(rs.getInt("bug_id"));
+				bugUpdate.setSeverity(rs.getString("severity"));
+				bugUpdate.setStatus(rs.getString("status"));
+				bugUpdate.setDescription(rs.getString("description"));
+				bugUpdate.setSummary(rs.getString("summary"));
+				bugUpdate.setCreateBy(rs.getString("created_by"));
+				bugUpdate.setPriority(rs.getString("priority"));
+				pst.execute();
+
+			}
+
+		} catch (SQLException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return bugUpdate;
+
+	}
+
+	@Override
+	public void updateBugData(BugModel bug) {
+		try (Connection connect = DBConnection.getConnection();
+				PreparedStatement pst = connect.prepareStatement(EDIT_BUG_USING_ID);) {
+
+			pst.setString(1, bug.getSeverity());
+			pst.setString(2, bug.getStatus());
+			pst.setString(3, bug.getDescription());
+			pst.setString(4, bug.getSummary());
+			pst.setString(5, bug.getCreateBy());
+			pst.setString(6, bug.getPriority());
+			pst.setInt(7, bug.getBugID());
+			pst.executeUpdate();
+
+		} catch (SQLException | ClassNotFoundException e) {
+
+			e.printStackTrace();
+		}
+
 	}
 
 }

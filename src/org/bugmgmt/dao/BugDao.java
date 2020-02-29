@@ -12,4 +12,10 @@ public interface BugDao {
 
 	int getListOfBugs();
 
+	BugModel getDetailsUsingId(int bug_id);
+
+	void deleteBugUsingId(int bug_id);
+
+	void updateBugData(BugModel bug);
+
 }

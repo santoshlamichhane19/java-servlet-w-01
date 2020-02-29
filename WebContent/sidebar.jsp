@@ -11,7 +11,7 @@
                             <strong>Dashboard</strong> </a>
                     </li>
                     <li class="nav-item"> <a id="list_post_info"
-                            class="btn  btn-block border border-info m-4 bg-info text-light" href="listpost.jsp">List Defects</a> </li>
+                            class="btn  btn-block border border-info m-4 bg-info text-light" href="create?action=list_bug">List Defects</a> </li>
                     <li class="nav-item "> <a id="create_post_tab"
                             class="btn  btn-block border border-info m-4 bg-info text-light" href="create.jsp">Create Defect</a> </li>
                     <li class="nav-item "> <a id="edit_post_tab"

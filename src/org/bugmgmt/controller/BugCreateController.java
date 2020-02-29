@@ -13,8 +13,12 @@ import org.bugmgmt.model.BugModel;
 import org.bugmgmt.service.BugService;
 import org.bugmgmt.service.BugServiceImpl;
 
-@WebServlet(name = "create", urlPatterns = { "/create" })
+@WebServlet(name = "create", urlPatterns = { "/create", "/listpost" })
 public class BugCreateController extends HttpServlet {
+	public static final String DELETE_PAGE = "listpost.jsp";
+	public static final String LIST_PAGE = "listpost.jsp";
+	public static final String UPDATE_BUG_PAGE = "edit.jsp";
+
 	private static final long serialVersionUID = 1L;
 
 	BugService bugService = new BugServiceImpl();
@@ -22,7 +26,26 @@ public class BugCreateController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		RequestDispatcher rd = request.getRequestDispatcher("listpost.jsp");
+		String action = request.getParameter("action");
+		String fwdrequest = "";
+
+		if (action.equals("list_bug")) {
+
+			fwdrequest = LIST_PAGE;
+			request.setAttribute("bugTbl", bugService.getAllBugData());
+
+		} else if (action.equals("delete_bug")) {
+			bugService.deleteBugUsingId(Integer.parseInt(request.getParameter("id")));
+			request.setAttribute("bugTbl", bugService.getAllBugData());
+			fwdrequest = DELETE_PAGE;
+
+		} else if (action.equals("update_bug")) {
+			request.setAttribute("bugEdit", bugService.getDetailsUsingId(Integer.parseInt(request.getParameter("id"))));
+			fwdrequest = UPDATE_BUG_PAGE;
+
+		}
+
+		RequestDispatcher rd = request.getRequestDispatcher(fwdrequest);
 		rd.forward(request, response);
 
 	}
@@ -39,8 +62,17 @@ public class BugCreateController extends HttpServlet {
 		bug.setCreateBy(request.getParameter("createBy"));
 		bug.setStatus(request.getParameter("bugStatus"));
 
-		bugService.saveRequestDataForBugs(bug);
-		RequestDispatcher rd = request.getRequestDispatcher("listpost.jsp");
+		String bugid = request.getParameter("bugID");
+
+		if (bugid == null | bugid.isEmpty()) {
+			bugService.saveRequestDataForBugs(bug);
+
+		} else {
+			bug.setBugID(Integer.parseInt(bugid));
+			bugService.updateBugData(bug);
+
+		}
+		RequestDispatcher rd = request.getRequestDispatcher("create.jsp");
 		request.setAttribute("bugTbl", bugService.getAllBugData());
 		rd.forward(request, response);
 
