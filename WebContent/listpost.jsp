@@ -11,52 +11,36 @@
                 <!-- Main Part 1-->
                 <div class="card-title text-center text-warning bg-dark mb-3 m-3 p-1 shadow-sm rounded"> <strong
                         style="font-size: 30px;"><i class="fa fa-tasks m-2 text-warning"></i>List Defects</strong> </div>
-                <div class="row justify-content-around p-4 mb-4">
-                    <div class="col-sm-4">
-                        <div class="card bg-danger text-light text-center">
-                            <div class="card-header">
-                                <h5>
-                                    <strong>High Priority</strong>
-                                </h5>
-                            </div>
-                            <div class="card-body">
-                                <p style="font-size:30px;"> 20 </p>
-                                <p class="border-top border-dark text-center"> High Priority Defects </p>
-                            </div>
-                            <div class="card-footer"> <a id="user" class="btn btn-dark btn-block shadow-sm p-2">Show Defects</a> </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="card bg-warning text-dark text-center">
-                            <div class="card-header">
-                                <h5>
-                                    <strong>Medium Priority Defects</strong>
-                                </h5>
-                            </div>
-                            <div class="card-body">
-                                <p style="font-size:30px;"> 20 </p>
-                                <p class="border-top border-dark text-dark">Medium Priority Defects</p>
-                            </div>
-                            <div class="card-footer"> <a class="btn btn-dark btn-block shadow-sm p-2 text-light">Show Defects</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="card bg-info text-light text-center">
-                            <div class="card-header">
-                                <h5>
-                                    <strong>Low Priority Defects</strong>
-                                </h5>
-                            </div>
-                            <div class="card-body">
-                                <p style="font-size:30px;">20</p>
-                                <p class="border-top border-dark text-center">Low Priority Defects</p>
-                            </div>
-                            <div class="card-footer"> <a class="btn btn-dark btn-block shadow-sm p-2 text-light">Show Defects</a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="row mb-4 justify-contents-center text-light">
+                    <div class="col">
                     
+                    <a type="button" class="btn btn-primary m-2">
+						  Total Defects <span class="badge badge-light">4</span>
+						</a>
+                    	
+                    	
+                    <a type="button" class="btn btn-danger m-2">
+						  High Priority <span class="badge badge-light">4</span>
+					</a> 
+					
+					 <a type="button" class="btn btn-warning m-2">
+						  Medium Priority <span class="badge badge-light">4</span>
+					</a> 
+					
+					 <a type="button" class="btn btn-info m-2">
+						  Low Priority <span class="badge badge-light">4</span>
+					</a> 
+					
+					 <a type="button" class="btn btn-info m-2">
+						  New Defects <span class="badge badge-light">4</span>
+					</a> 
+					 <a type="button" class="btn btn-secondary m-2 ml-auto">
+						  In Progress <span class="badge badge-light">4</span>
+					</a>
+					<a type="button" class="btn btn-primary m-2 ml-auto">
+						  Completed <span class="badge badge-light">4</span>
+					</a> 
+                    </div>
                     
                 </div>
                 

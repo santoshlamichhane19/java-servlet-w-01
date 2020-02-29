@@ -64,7 +64,7 @@ public class BugCreateController extends HttpServlet {
 
 		String bugid = request.getParameter("bugID");
 
-		if (bugid == null | bugid.isEmpty()) {
+		if (bugid == null || bugid.isEmpty()) {
 			bugService.saveRequestDataForBugs(bug);
 
 		} else {
