@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
  
    <div class="wrapper d-flex flex-row h-100">
         <div class="bg-light text-light w-25 p-2 ">
@@ -11,7 +12,7 @@
                             <strong>Dashboard</strong> </a>
                     </li>
                     <li class="nav-item"> <a id="list_post_info"
-                            class="btn  btn-block border border-info m-4 bg-info text-light" href="create?action=list_bug">List Defects</a> </li>
+                            class="btn  btn-block border border-info m-4 bg-info text-light" href="create?action=list_bug">List Defects <span class="badge badge-warning" >${totalBugCount}</span></a> </li>
                     <li class="nav-item "> <a id="create_post_tab"
                             class="btn  btn-block border border-info m-4 bg-info text-light" href="create.jsp">Create Defect</a> </li>
                     <li class="nav-item "> <a id="edit_post_tab"

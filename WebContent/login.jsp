@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ include file="headlayout.jsp" %>
 
 
@@ -28,11 +29,12 @@
 				</div>
 				
 				
-				<input class="btn btn-dark shadow border rounded m-4"type="submit" value="Login">
+				<input class="btn btn-dark shadow rounded m-4"type="submit" value="Login">
 				
 			</form>
-			<span class="alert alert-info">${msg}</span>
-				
+			<c:if test="${!empty msg }">
+				<span syle="display:hidden;"class="alert alert-info">${msg}</span>
+			</c:if>
 		</div>
 		
 			<div class="col-sm-4 card m-4 shadow rounded bg-warning">
@@ -49,7 +51,7 @@
 					<option value="User">User</option>
 				</select>
 			
-				<button class="btn btn-dark btn-block shadow border rounded mt-2">Register</button>
+				<button class="btn btn-dark btn-block shadow rounded mt-2">Register</button>
 			</form>
 		</div>
 		

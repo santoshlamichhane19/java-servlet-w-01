@@ -18,4 +18,6 @@ public interface BugDao {
 
 	void updateBugData(BugModel bug);
 
+	List<Integer> getBugDataCount();
+
 }

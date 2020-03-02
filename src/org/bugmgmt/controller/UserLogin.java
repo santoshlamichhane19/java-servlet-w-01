@@ -38,6 +38,7 @@ public class UserLogin extends HttpServlet {
 
 			RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
 			request.setAttribute("msg", "Incorrect username or password");
+			request.setAttribute("username", userInfo.getUsername());
 			rd.include(request, response);
 
 		}

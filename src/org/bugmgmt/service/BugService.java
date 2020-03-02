@@ -18,4 +18,6 @@ public interface BugService {
 
 	void updateBugData(BugModel bug);
 
+	List<Integer> getBugDataCount();
+
 }

@@ -18,6 +18,12 @@ public class BugDaoImpl implements BugDao {
 	private static final String SELECT_BUG_USING_ID = "SELECT * from list_bug_table where bug_id=?";
 	private static final String EDIT_BUG_USING_ID = "UPDATE list_bug_table SET severity=?, status=?, description=?, summary=?, created_by=?, priority=? where bug_id=?";
 	private static final String DELETE_BUG_BY_ID = "DELETE from list_bug_table where bug_id=?";
+	private static final String SELECT_HIGH_P_BUG = "SELECT * from list_bug_table where priority='High'";
+	private static final String SELECT_MEDIUM_P_BUG = "SELECT * from list_bug_table where priority='Medium'";
+	private static final String SELECT_LOW_P_BUG = "SELECT * from list_bug_table where priority='Low'";
+	private static final String SELECT_STATUS_NEW_BUG = "SELECT * from list_bug_table where status='New'";
+	private static final String SELECT_STATUS_INP_BUG = "SELECT * from list_bug_table where status='In Process'";
+	private static final String SELECT_STATUS_COMP_BUG = "SELECT * from list_bug_table where status='Completed'";
 
 	@Override
 	public void saveBugData(BugModel bugData) {
@@ -149,6 +155,86 @@ public class BugDaoImpl implements BugDao {
 
 			e.printStackTrace();
 		}
+
+	}
+
+	@Override
+	public List<Integer> getBugDataCount() {
+		List<Integer> countDetails = new ArrayList<>();
+
+		try (Connection connect = DBConnection.getConnection();
+				PreparedStatement pst = connect.prepareStatement(SELECT_HIGH_P_BUG)) {
+
+			ResultSet rs = pst.executeQuery();
+			rs.last();
+			countDetails.add(rs.getRow());
+
+		} catch (SQLException | ClassNotFoundException e) {
+
+			e.printStackTrace();
+		}
+
+		try (Connection connect = DBConnection.getConnection();
+				PreparedStatement pst = connect.prepareStatement(SELECT_MEDIUM_P_BUG)) {
+
+			ResultSet rs = pst.executeQuery();
+			rs.last();
+			countDetails.add(rs.getRow());
+
+		} catch (SQLException | ClassNotFoundException e) {
+
+			e.printStackTrace();
+		}
+
+		try (Connection connect = DBConnection.getConnection();
+				PreparedStatement pst = connect.prepareStatement(SELECT_LOW_P_BUG)) {
+
+			ResultSet rs = pst.executeQuery();
+			rs.last();
+			countDetails.add(rs.getRow());
+
+		} catch (SQLException | ClassNotFoundException e) {
+
+			e.printStackTrace();
+		}
+
+		try (Connection connect = DBConnection.getConnection();
+				PreparedStatement pst = connect.prepareStatement(SELECT_STATUS_NEW_BUG)) {
+
+			ResultSet rs = pst.executeQuery();
+			rs.last();
+			countDetails.add(rs.getRow());
+
+		} catch (SQLException | ClassNotFoundException e) {
+
+			e.printStackTrace();
+		}
+
+		try (Connection connect = DBConnection.getConnection();
+				PreparedStatement pst = connect.prepareStatement(SELECT_STATUS_INP_BUG)) {
+
+			ResultSet rs = pst.executeQuery();
+			rs.last();
+			countDetails.add(rs.getRow());
+
+		} catch (SQLException | ClassNotFoundException e) {
+
+			e.printStackTrace();
+		}
+
+		try (Connection connect = DBConnection.getConnection();
+				PreparedStatement pst = connect.prepareStatement(SELECT_STATUS_COMP_BUG)) {
+
+			ResultSet rs = pst.executeQuery();
+			rs.last();
+			countDetails.add(rs.getRow());
+
+		} catch (SQLException | ClassNotFoundException e) {
+
+			e.printStackTrace();
+		}
+
+		return countDetails;
 
 	}
 

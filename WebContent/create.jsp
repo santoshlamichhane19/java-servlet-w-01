@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    
 <%@ include file="headlayout.jsp" %>
 <%@ include file="sidebar.jsp" %>
 
@@ -52,7 +54,7 @@
                             <div class="form-row m-3">
                                 <div class="col-md-4 form-group">
                                     <label class="font-weight-bold">Created By</label>
-                                    <input class="form-control" type="text" placeholder="Enter Username" name="createBy">
+                                    <input class="form-control" type="text" placeholder="Enter Username" name="createBy" >
                                 </div>
 
                                 <div class="col-md-4 form-group">

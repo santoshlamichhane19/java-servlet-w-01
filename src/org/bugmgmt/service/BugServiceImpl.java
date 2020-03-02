@@ -44,4 +44,10 @@ public class BugServiceImpl implements BugService {
 
 	}
 
+	@Override
+	public List<Integer> getBugDataCount() {
+		return bugDao.getBugDataCount();
+
+	}
+
 }

@@ -1,6 +1,7 @@
 package org.bugmgmt.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -32,7 +33,23 @@ public class BugCreateController extends HttpServlet {
 		if (action.equals("list_bug")) {
 
 			fwdrequest = LIST_PAGE;
-			request.setAttribute("bugTbl", bugService.getAllBugData());
+			int totalCount = bugService.getAllBugData().size();
+
+			if (totalCount == 0) {
+				request.setAttribute("noRecords", "No Records to Display");
+			} else {
+				request.setAttribute("bugTbl", bugService.getAllBugData());
+			}
+			request.setAttribute("totalBugCount", totalCount);
+
+			List<Integer> bugContainer = bugService.getBugDataCount();
+			System.out.println(bugContainer);
+			request.setAttribute("totalHighCount", bugContainer.get(0));
+			request.setAttribute("totalMediumCount", bugContainer.get(1));
+			request.setAttribute("totalLowCount", bugContainer.get(2));
+			request.setAttribute("totalNewCount", bugContainer.get(3));
+			request.setAttribute("totalInpCount", bugContainer.get(4));
+			request.setAttribute("totalCompCount", bugContainer.get(5));
 
 		} else if (action.equals("delete_bug")) {
 			bugService.deleteBugUsingId(Integer.parseInt(request.getParameter("id")));
@@ -40,6 +57,7 @@ public class BugCreateController extends HttpServlet {
 			fwdrequest = DELETE_PAGE;
 
 		} else if (action.equals("update_bug")) {
+			System.out.println(bugService.getDetailsUsingId(Integer.parseInt(request.getParameter("id"))));
 			request.setAttribute("bugEdit", bugService.getDetailsUsingId(Integer.parseInt(request.getParameter("id"))));
 			fwdrequest = UPDATE_BUG_PAGE;
 
