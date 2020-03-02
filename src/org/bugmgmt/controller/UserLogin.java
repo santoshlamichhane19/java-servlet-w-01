@@ -22,6 +22,10 @@ public class UserLogin extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		String username = "janedoe";
+		RequestDispatcher rd = request.getRequestDispatcher("headlayout.jsp");
+		request.setAttribute("username", username);
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -33,12 +37,12 @@ public class UserLogin extends HttpServlet {
 		userInfo.setPassword(request.getParameter("password"));
 
 		if (userService.isValidLogin(userInfo.getUsername(), userInfo.getPassword())) {
+
 			response.sendRedirect("dashboard.jsp");
 		} else {
 
 			RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
 			request.setAttribute("msg", "Incorrect username or password");
-			request.setAttribute("username", userInfo.getUsername());
 			rd.include(request, response);
 
 		}

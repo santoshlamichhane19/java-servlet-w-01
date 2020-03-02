@@ -43,7 +43,6 @@ public class BugCreateController extends HttpServlet {
 			request.setAttribute("totalBugCount", totalCount);
 
 			List<Integer> bugContainer = bugService.getBugDataCount();
-			System.out.println(bugContainer);
 			request.setAttribute("totalHighCount", bugContainer.get(0));
 			request.setAttribute("totalMediumCount", bugContainer.get(1));
 			request.setAttribute("totalLowCount", bugContainer.get(2));

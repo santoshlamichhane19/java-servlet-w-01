@@ -36,7 +36,7 @@
                                 </h5>
                             </div>
                             <div class="card-body">
-                                <p style="font-size:40px;"> 20 </p>
+                                <p style="font-size:40px;"> ${totalBugCount}</p>
                                 <p class="border-top border-dark text-center"> New Defect</p>
                             </div>
                             <div class="card-footer"> <a class="btn btn-dark btn-block shadow-sm p-2">Show Defect List</a>
